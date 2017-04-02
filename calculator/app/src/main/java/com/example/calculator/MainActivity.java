@@ -8,9 +8,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
 
+import java.io.StringBufferInputStream;
+
 import static android.R.attr.button;
 
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,47 +50,45 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     @Override
     public void onClick(View v) {
         TextView tV = (TextView) findViewById(R.id.Text1);
+        if (tV.getText() == "0") tV.setText("");
         switch (v.getId()) {
             case R.id.Btn1:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("1");
+                tV.setText(tV.getText()+"1");
                 break;
             case R.id.Btn2:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("2");
+                tV.setText(tV.getText()+"2");
                 break;
             case R.id.Btn3:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("3");
+                tV.setText(tV.getText()+"3");
                 break;
             case R.id.Btn4:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("4");
+                tV.setText(tV.getText()+"4");
                 break;
             case R.id.Btn5:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("5");
+              tV.setText(tV.getText()+"5");
                 break;
             case R.id.Btn6:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("6");
+              tV.setText(tV.getText()+"6");
                 break;
             case R.id.Btn7:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("7");
+              tV.setText(tV.getText()+"7");
                 break;
             case R.id.Btn8:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("8");
+              tV.setText(tV.getText()+"8");
                 break;
             case R.id.Btn9:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("9");
+              tV.setText(tV.getText()+"9");
                 break;
             case R.id.BtnZero:
-                if (tV.getText() == "0") tV.setText("");
-                tV.setText("0");
+                tV.setText(tV.getText()+"0");
                 break;
         }
+    }
+
+    public void ClickBtnDelet(View v){
+        TextView tV=(TextView) findViewById(R.id.Text1);
+        StringBuffer str = new StringBuffer(R.id.Text1);
+        str.deleteCharAt(str.length()-1);
+        tV.setText(str.toString());
     }
 }

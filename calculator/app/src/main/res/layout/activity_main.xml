@@ -11,18 +11,18 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
     tools:context="com.example.calculator.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:text="0"
-        android:textSize="50dp"
-        android:gravity="right"
+        android:textSize="77dp"
+        android:layout_alignParentRight="true"
         android:id="@+id/Text1"/>
 
     <!--Lin1   Square Root && Square && Reciprocal-->
@@ -38,6 +38,7 @@
             android:layout_weight="1"
             android:background="#ff0"
             android:text="√"
+            android:textSize="30sp"
             android:onClick="ClickBtnSqRoot"
             android:id="@+id/BtnSqRoot"
             android:shadowColor="#fff"/>
@@ -47,6 +48,7 @@
             android:layout_weight="1"
             android:background="#ff0"
             android:text="x²"
+            android:textSize="30sp"
             android:onClick="ClickBtnSqua"
             android:id="@+id/BtnSqua" />
         <Button
@@ -55,6 +57,7 @@
             android:layout_weight="1"
             android:background="#ff0"
             android:text="1/x"
+            android:textSize="30sp"
             android:onClick="ClickBtnRecip"
             android:id="@+id/BtnRecip"/>
     </LinearLayout>
@@ -71,6 +74,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="CE"
+            android:textSize="30sp"
             android:onClick="ClickBtnCE"
             android:id="@+id/BtnCE" />
         <Button
@@ -79,6 +83,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="C"
+            android:textSize="30sp"
             android:onClick="ClickBtnC"
             android:id="@+id/BtnC" />
         <Button
@@ -87,6 +92,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="←"
+            android:textSize="30sp"
             android:onClick="ClickBtnDelet"
             android:id="@+id/BtnDelet" />
         <Button
@@ -95,7 +101,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="÷"
-            android:textSize="20dp"
+            android:textSize="30sp"
             android:onClick="ClickBtnDivision"
             android:id="@+id/BtnDivision"/>
     </LinearLayout>
@@ -113,7 +119,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="7"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn7" />
         <Button
             android:layout_width="0dp"
@@ -121,7 +127,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="8"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn8" />
         <Button
             android:layout_width="0dp"
@@ -129,7 +135,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="9"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn9" />
         <Button
             android:layout_width="0dp"
@@ -137,6 +143,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="×"
+            android:textSize="30sp"
             android:onClick="ClickBtnmul"
             android:id="@+id/Btnmul"/>
     </LinearLayout>
@@ -154,7 +161,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="4"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn4"/>
         <Button
             android:layout_width="0dp"
@@ -162,7 +169,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="5"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn5" />
         <Button
             android:layout_width="0dp"
@@ -170,7 +177,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="6"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn6" />
         <Button
             android:layout_width="0dp"
@@ -178,6 +185,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="-"
+            android:textSize="30sp"
             android:onClick="ClickBtnSub"
             android:id="@+id/BtnSub"/>
     </LinearLayout>
@@ -195,7 +203,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="1"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn1" />
         <Button
             android:layout_width="0dp"
@@ -203,7 +211,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="2"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn2" />
         <Button
             android:layout_width="0dp"
@@ -211,7 +219,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="3"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/Btn3" />
         <Button
             android:layout_width="0dp"
@@ -219,6 +227,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="+"
+            android:textSize="30sp"
             android:onClick="ClickBtnAdd"
             android:id="@+id/BtnAdd"/>
     </LinearLayout>
@@ -236,6 +245,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="±"
+            android:textSize="30sp"
             android:onClick="ClickBtnPorN"
             android:id="@+id/BtnPorN" />
         <Button
@@ -244,7 +254,7 @@
             android:layout_weight="1"
             android:background="#0ff"
             android:text="0"
-            android:onClick="ClickNumBtn"
+            android:textSize="30sp"
             android:id="@+id/BtnZero" />
         <Button
             android:layout_width="0dp"
@@ -252,6 +262,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="."
+            android:textSize="30sp"
             android:onClick="ClickBtnPoint"
             android:id="@+id/BtnPoint" />
         <Button
@@ -260,6 +271,7 @@
             android:layout_weight="1"
             android:background="#0f0"
             android:text="="
+            android:textSize="30sp"
             android:onClick="ClickBtnEqua"
             android:id="@+id/BtnEqua"/>
     </LinearLayout>
