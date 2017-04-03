@@ -15,12 +15,16 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
+    android:background="@drawable/image2"
+    android:backgroundTint="@android:color/holo_blue_dark"
+    android:backgroundTintMode="multiply"
     tools:context="com.example.calculator.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="90dp"
         android:text="0"
+        android:textColor="#fff"
         android:textSize="77dp"
         android:layout_alignParentRight="true"
         android:id="@+id/Text1"/>
@@ -32,22 +36,28 @@
         android:layout_below="@id/Text1"
         android:id="@+id/Line1">
 
+        <!--<ImageButton-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="70dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:clickable="false" />-->
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#ff0"
+            android:background="#00000000"
             android:text="√"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnSqRoot"
-            android:id="@+id/BtnSqRoot"
-            android:shadowColor="#fff"/>
+            android:id="@+id/BtnSqRoot" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#ff0"
+            android:background="#00000000"
             android:text="x²"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnSqua"
             android:id="@+id/BtnSqua" />
@@ -55,8 +65,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#ff0"
+            android:background="#00000000"
             android:text="1/x"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnRecip"
             android:id="@+id/BtnRecip"/>
@@ -72,8 +83,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="CE"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnCE"
             android:id="@+id/BtnCE" />
@@ -81,8 +93,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="C"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnC"
             android:id="@+id/BtnC" />
@@ -90,17 +103,19 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="←"
+            android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnDelet"
+            android:onClick="ClickBtnDelete"
             android:id="@+id/BtnDelet" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="÷"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnDivision"
             android:id="@+id/BtnDivision"/>
@@ -117,32 +132,36 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="7"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn7" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="8"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn8" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="9"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn9" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="×"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnmul"
             android:id="@+id/Btnmul"/>
@@ -159,32 +178,36 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="4"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn4"/>
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="5"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn5" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="6"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn6" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="-"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnSub"
             android:id="@+id/BtnSub"/>
@@ -201,32 +224,36 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="1"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn1" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="2"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn2" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="3"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:id="@+id/Btn3" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="+"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnAdd"
             android:id="@+id/BtnAdd"/>
@@ -243,8 +270,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="±"
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnPorN"
             android:id="@+id/BtnPorN" />
@@ -252,16 +280,18 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0ff"
+            android:background="#00000000"
             android:text="0"
+            android:textColor="#fff"
             android:textSize="30sp"
-            android:id="@+id/BtnZero" />
+            android:id="@+id/Btn0" />
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="."
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnPoint"
             android:id="@+id/BtnPoint" />
@@ -269,8 +299,9 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_weight="1"
-            android:background="#0f0"
+            android:background="#00000000"
             android:text="="
+            android:textColor="#fff"
             android:textSize="30sp"
             android:onClick="ClickBtnEqua"
             android:id="@+id/BtnEqua"/>
