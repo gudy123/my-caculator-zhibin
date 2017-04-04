@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 //    数字键 onclick
     public void onClick(View v) {
         TextView resulte= (TextView) findViewById(R.id.Text1);
+        if(resulte.getText().toString().equals("TOO BIG"))   return;
         if (resulte.getText().equals("0")||(ifResult==true))
         {
            // Log.e("here","ppp");///调试用的案例
@@ -98,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     //  求”平方根“的点击事件
     public void ClickBtnSqRoot(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
+        if(resulte.getText().toString().equals("TOO BIG"))   return;
         String textStr=resulte.getText().toString();
         double lastNum =Double.parseDouble(textStr);
         double  newNum =Math.sqrt(lastNum);
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             resulte.setText("wrong");
             return;
         }
-        if(endline>=8)  endline=8;
+        if(endline>=16)  endline=16;
         String newStr=Double.toString(newNum).substring(0,endline);       ///设置输出位数不大于8位字符
 
         resulte.setText(newStr);
@@ -118,38 +120,49 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 //    “平方”的点击事件
     public void ClickBtnSqua(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
-        String textString=resulte.getText().toString();
-        double lastNum = Double.parseDouble(textString);
-        double  newNum = Math.pow(lastNum,2);
-        String secondString = Double.toString(newNum);
-        int endline=secondString.length();
-
-        if(endline>=8)  endline=8;
-        String newStr=Double.toString(newNum).substring(0,endline);       ///设置输出位数不大于8位字符
-
-        resulte.setText(newStr);
-        ifResult=true;
+        if(resulte.getText().toString().equals("TOO BIG"))  ;
+        else{
+            String textString=resulte.getText().toString();
+            double lastNum = Double.parseDouble(textString);
+            double  newNum = Math.pow(lastNum,2);
+            String secondString = Double.toString(newNum);
+            int endline=secondString.length();
+            if(endline>16)  {
+                resulte.setText("TOO BIG");
+            }
+            else if(secondString.substring(endline-2,endline).equals(".0")){
+                resulte.setText(secondString.substring(0,endline-2));
+            }
+            else {
+                resulte.setText(secondString);
+            }
+            ifResult = true;
+        }
     }
 //        “倒数”的点击事件
     public void ClickBtnRecip(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
-        String textString=resulte.getText().toString();
-        double lastNum = Double.parseDouble(textString);
-        double  newNum = 1/lastNum;
-        String secondString = Double.toString(newNum);
-        int endline=secondString.length();
+        if(resulte.getText().toString().equals("TOO BIG"));
+        else{
+            String textString = resulte.getText().toString();
+            double lastNum = Double.parseDouble(textString);
+            double newNum = 1 / lastNum;
+            String secondString = Double.toString(newNum);
+            int endline = secondString.length();
 
-        if(endline>=8)  endline=8;
-        String newStr=Double.toString(newNum).substring(0,endline);       ///设置输出位数不大于8位字符
+            if (endline >= 16) endline = 16;
+            String newStr = Double.toString(newNum).substring(0, endline);       ///设置输出位数不大于8位字符
 
-        resulte.setText(newStr);
-        ifResult=true;
-
+            resulte.setText(newStr);
+            ifResult = true;
+        }
     }
 //    “删除”的点击事件
     public void ClickBtnDelete(View v){
         TextView resulte=(TextView) findViewById(R.id.Text1);
+        if(resulte.getText().toString().equals("TOO BIG"))   return;
         String str=resulte.getText().toString();     ///getText!!!s
+        if(ifResult==true) return; ///如果是结果就不能删
         if(str.charAt(str.length()-1)=='.')   ifOncePoint=true;
         if(str.length()==1) {
             resulte.setText("0");
@@ -174,6 +187,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public void ClickBtnPorN(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
         String str=resulte.getText().toString();
+        if(str.equals("TOO BIG"))   return;
         if(str.charAt(0)=='-')
             resulte.setText(str.substring(1,str.length()));
         else if((str.charAt(0)=='0')&&(str.length()==1))
@@ -187,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public void ClickBtnPoint(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
         String str=resulte.getText().toString();
+        if(str.equals("TOO BIG"))   return;
         if(ifOncePoint) {
             resulte.setText(str+".");
             ifOncePoint=false;       /// 等号 && delete && CE && C 中最后要变为true！！！！！！！！！！！！！！！！！！！！！！！！！！！

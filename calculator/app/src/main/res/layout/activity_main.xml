@@ -14,26 +14,31 @@
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
+    android:background="#0ff"
     android:paddingTop="0dp"
-    android:background="@drawable/image2"
-    android:backgroundTint="@android:color/holo_blue_dark"
-    android:backgroundTintMode="multiply"
     tools:context="com.example.calculator.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="90dp"
-        android:text="0"
-        android:textColor="#fff"
-        android:textSize="77dp"
-        android:layout_alignParentRight="true"
-        android:id="@+id/Text1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90sp"
+        android:id="@+id/firstline">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="0"
+            android:textColor="#fff"
+            android:textSize="40dp"
+            android:layout_alignParentRight="true"
+            android:gravity="bottom|right"
+            android:id="@+id/Text1"/>
+
+    </LinearLayout>
 
     <!--Lin1   Square Root && Square && Reciprocal-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/Text1"
+        android:layout_below="@id/firstline"
         android:id="@+id/Line1">
 
         <!--<ImageButton-->
