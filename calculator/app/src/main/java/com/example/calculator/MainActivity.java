@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
@@ -17,6 +18,9 @@ import static android.R.attr.flipInterval;
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener {
     boolean ifOncePoint=true;
     boolean ifResult=false;
+    double firstNum=0;
+    int operateid=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     public void onClick(View v) {
         TextView resulte= (TextView) findViewById(R.id.Text1);
         if(resulte.getText().toString().equals("TOO BIG"))   return;
-        if (resulte.getText().equals("0")||(ifResult==true))
+        if (resulte.getText().equals("0")||(ifResult==true)||(operateid>=1))
         {
            // Log.e("here","ppp");///调试用的案例
             resulte.setText("");
@@ -96,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
 
     }
 
+//    判断是整数就输出整数
+//    public string swap()
     //  求”平方根“的点击事件
     public void ClickBtnSqRoot(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
@@ -112,7 +118,10 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         }
         if(endline>=16)  endline=16;
         String newStr=Double.toString(newNum).substring(0,endline);       ///设置输出位数不大于8位字符
-
+        if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+            resulte.setText(newStr.substring(0,newStr.length()-2));
+        }
+        else resulte.setText(newStr);
         resulte.setText(newStr);
         ifResult=true;
     }
@@ -151,9 +160,11 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             int endline = secondString.length();
 
             if (endline >= 16) endline = 16;
-            String newStr = Double.toString(newNum).substring(0, endline);       ///设置输出位数不大于8位字符
-
-            resulte.setText(newStr);
+            String newStr = Double.toString(newNum).substring(0, endline);       ///设置输出位数不大于16位字符
+            if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+                resulte.setText(newStr.substring(0,newStr.length()-2));
+            }
+            else resulte.setText(newStr);
             ifResult = true;
         }
     }
@@ -170,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         }
         if(str.equals("0")) return ;
         resulte.setText(str.substring(0,str.length()-1));
+        
 //        StringBuffer str = new StringBuffer(resulte.getText().toString());
 //        str.deleteCharAt(str.length()-1);
 //        resulte.setText(str.toString());
@@ -182,7 +194,15 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         ifOncePoint=true;
         ifResult=false;
     }
-
+//       “ C” 的点击事件
+    public  void ClickBtnC(View v){
+        TextView resulte = (TextView) findViewById(R.id.Text1);
+        if(resulte.getText().toString().equals("TOO BIG"))   return;
+        resulte.setText("0");
+        firstNum=0;
+        ifOncePoint=true;
+        ifResult=false;
+    }
 //    “正负转换” 的点击事件
     public void ClickBtnPorN(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
@@ -208,6 +228,87 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
         }
         else {
             return;
+        }
+    }
+//    “除”的点击事件
+    public void ClickBtnDivision(View v){
+        TextView resulte=(TextView) findViewById(R.id.Text1);
+        firstNum=Double.parseDouble(resulte.getText().toString());
+        operateid=1;
+        ifOncePoint=true;
+    }
+//    “乘”的点击事件
+    public void ClickBtnMul(View v){
+        TextView resulte=(TextView) findViewById(R.id.Text1);
+        firstNum=Double.parseDouble(resulte.getText().toString());
+        operateid=2;
+        ifOncePoint=true;
+    }
+//    “减”的点击事件
+    public  void ClickBtnSub(View v){
+        TextView resulte=(TextView) findViewById(R.id.Text1);
+        firstNum=Double.parseDouble(resulte.getText().toString());
+        operateid=3;
+        ifOncePoint=true;
+    }
+//    “加”的点击事件
+    public void ClickBtnAdd(View v){
+        TextView resulte=(TextView) findViewById(R.id.Text1);
+        firstNum=Double.parseDouble(resulte.getText().toString());
+        operateid=4;
+        ifOncePoint=true;
+    }
+//     “等号”的点击事件
+    public  void ClickBtnEqua(View v){
+        TextView resulte=(TextView)findViewById(R.id.Text1);
+        double nowNum= Double.parseDouble(resulte.getText().toString());
+        String newStr;
+        switch (operateid){
+            case 1:
+                nowNum/=firstNum;
+                newStr= Double.toString(nowNum);
+                if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+                    resulte.setText(newStr.substring(0,newStr.length()-2));
+                }
+                else resulte.setText(newStr);
+                ifResult=true;
+                operateid=0;
+                ifOncePoint=true;
+                break;
+            case 2:
+                nowNum*=firstNum;
+                newStr= Double.toString(nowNum);
+                if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+                    resulte.setText(newStr.substring(0,newStr.length()-2));
+                }
+                else resulte.setText(newStr);
+                ifResult=true;
+                operateid=0;
+                ifOncePoint=true;
+                break;
+            case 3:
+                nowNum=firstNum-nowNum;
+                newStr= Double.toString(nowNum);
+                if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+                    resulte.setText(newStr.substring(0,newStr.length()-2));
+                }
+                else resulte.setText(newStr);
+                ifResult=true;
+                ifOncePoint=true;
+                operateid=0;
+                break;
+            case 4:
+                nowNum+=firstNum;
+                newStr= Double.toString(nowNum);
+                if(newStr.substring(newStr.length()-2,newStr.length()).equals(".0")){
+                    resulte.setText(newStr.substring(0,newStr.length()-2));
+                }
+                else resulte.setText(newStr);
+                ifResult=true;
+                ifOncePoint=true;
+                operateid=0;
+                break;
+            default:;   ///连加连减处理
         }
     }
 }
