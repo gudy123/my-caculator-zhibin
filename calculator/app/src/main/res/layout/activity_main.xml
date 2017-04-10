@@ -33,19 +33,14 @@
             android:id="@+id/Text1"/>
 
     </LinearLayout>
-
     <!--Lin1   Square Root && Square && Reciprocal-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/firstline"
+        android:onClick="onClickLine1"
         android:id="@+id/Line1">
 
-        <!--<ImageButton-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="70dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:clickable="false" />-->
         <Button
             android:layout_width="0dp"
             android:layout_height="70dp"
@@ -54,7 +49,6 @@
             android:text="√"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnSqRoot"
             android:id="@+id/BtnSqRoot" />
         <Button
             android:layout_width="0dp"
@@ -64,7 +58,6 @@
             android:text="x²"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnSqua"
             android:id="@+id/BtnSqua" />
         <Button
             android:layout_width="0dp"
@@ -74,10 +67,8 @@
             android:text="1/x"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnRecip"
             android:id="@+id/BtnRecip"/>
     </LinearLayout>
-
     <!--Line2   CE  C  Delet Divisionn-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -122,10 +113,8 @@
             android:text="÷"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnDivision"
             android:id="@+id/BtnDivision"/>
     </LinearLayout>
-
     <!--Line3   7 && 8 && 9 && Multiplication     -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -168,10 +157,8 @@
             android:text="×"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnMul"
-            android:id="@+id/Btnmul"/>
+            android:id="@+id/BtnMul"/>
     </LinearLayout>
-
     <!--Line4  4 && 5 && 6 && subtraction   -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -214,11 +201,8 @@
             android:text="-"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnSub"
             android:id="@+id/BtnSub"/>
     </LinearLayout>
-
-
     <!--Line5 1 && 2 && 3 && Addition    -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -260,11 +244,8 @@
             android:text="+"
             android:textColor="#fff"
             android:textSize="30sp"
-            android:onClick="ClickBtnAdd"
             android:id="@+id/BtnAdd"/>
     </LinearLayout>
-
-
     <!--Line6   ±(positive or negative) && 0 && .(point)~~=-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -311,6 +292,5 @@
             android:onClick="ClickBtnEqua"
             android:id="@+id/BtnEqua"/>
     </LinearLayout>
-
 </RelativeLayout>
 </ScrollView>
