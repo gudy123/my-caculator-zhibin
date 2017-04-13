@@ -17,23 +17,24 @@ import static android.R.attr.elegantTextHeight;
 import static android.R.attr.flipInterval;
 
 public class MainActivity extends AppCompatActivity  {
-    boolean ifOncePoint=true;
-    boolean ifResult=false;
-    double firstNum=0;
-    double secondNum=0;
-    int operateID=0;
+    boolean ifOncePoint = true;
+    boolean ifResult = false;
+    double firstNum = 0;
+    boolean ifFirst = true;
+    int operateID = 0;
     ///  “数字”  点击事件
     private View.OnClickListener NumListener1 = new View.OnClickListener(){
         @Override
         public void onClick(View view) {
             TextView resulte = (TextView) findViewById(R.id.Text1);
             if(resulte.getText().toString().equals("TOO BIG"))   return;
-            if (resulte.getText().equals("0")||(ifResult==true)||(operateID>=1)) {
+            if (resulte.getText().equals("0")||(ifResult==true) ||(operateID >= 1)){
                 resulte.setText("");
                 ifResult=false;
             }
             Button btn = (Button) view;
-            resulte.setText(resulte.getText()+btn.getText().toString());
+            resulte.setText(resulte.getText()+ btn.getText().toString());
+            ifFirst = true;
         }
     };
     private void setNumButtonListener(int viewId){     ///绑定数字键监听器
@@ -47,12 +48,13 @@ public class MainActivity extends AppCompatActivity  {
             TextView resulte = (TextView) findViewById(R.id.Text1);
             Button btn = (Button) view;
             if(resulte.getText().toString().equals("TOO BIG"))   return;
-            secondNum = firstNum = Double.parseDouble(resulte.getText().toString());
+            firstNum = Double.parseDouble(resulte.getText().toString());
             if(btn.getText().equals("÷"))   operateID = 1;
             else if(btn.getText().equals("×"))  operateID = 2;
             else if(btn.getText().equals("-"))  operateID = 3;
             else if(btn.getText().equals("+"))  operateID = 4;
             ifOncePoint = true;
+            ifFirst = true;
         }
     };
     private void setOperate1ButtonListener(int viewId){     ///绑定加减乘除监听器
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity  {
             }
             else resulte.setText(newStr);
             ifResult=true;
+            ifFirst = true;
         }
     };
     private void setLine1ButtonListener(int viewId){     ///绑定加减乘除监听器
@@ -120,6 +123,7 @@ public class MainActivity extends AppCompatActivity  {
     }
     public void ClickBtnDelete(View v){                        //    “删除”的点击事件
         TextView resulte=(TextView) findViewById(R.id.Text1);
+        ifFirst = true;
         if(resulte.getText().toString().equals("TOO BIG"))   return;
         String str=resulte.getText().toString();     ///getText!!!s
         if(ifResult==true) return; ///如果是结果就不能删
@@ -137,6 +141,8 @@ public class MainActivity extends AppCompatActivity  {
         resulte.setText("0");
         ifOncePoint=true;
         ifResult=false;
+        ifFirst = true;
+        operateID = 0;
     }
 //       “ C” 的点击事件
     public  void ClickBtnC(View v){
@@ -146,6 +152,8 @@ public class MainActivity extends AppCompatActivity  {
         firstNum=0;
         ifOncePoint=true;
         ifResult=false;
+        ifFirst = true;
+        operateID = 0;
     }
 //    “正负转换” 的点击事件
     public void ClickBtnPorN(View v){
@@ -158,17 +166,20 @@ public class MainActivity extends AppCompatActivity  {
             return;
         else
             resulte.setText("-"+str);
-
     }
 //    “小数点”  的点击事件
     public void ClickBtnPoint(View v){
         TextView resulte = (TextView) findViewById(R.id.Text1);
         String str=resulte.getText().toString();
         if(str.equals("TOO BIG"))   return;
-        if(ifOncePoint) {
+        if(ifFirst == false){
+            resulte.setText("0.");
+            ifFirst = true;
+            return;
+        }else if(ifOncePoint) {
             resulte.setText(str+".");
             ifOncePoint=false;       /// 等号 && delete && CE && C 中最后要变为true！！！！！！！！！！！！！！！！！！！！！！！！！！！
-        } else {
+        }else {
             return;
         }
     }
@@ -176,7 +187,6 @@ public class MainActivity extends AppCompatActivity  {
     public  void ClickBtnEqua(View v){
         TextView resulte = (TextView)findViewById(R.id.Text1);
         double nowNum = Double.parseDouble(resulte.getText().toString());
-        secondNum = nowNum;
         String newStr;
         switch (operateID){
             case 1:
@@ -186,8 +196,6 @@ public class MainActivity extends AppCompatActivity  {
                     resulte.setText(newStr.substring(0,newStr.length()-2));
                 }
                 else resulte.setText(newStr);
-                ifResult = true;
-                ifOncePoint = true;
                 break;
             case 2:
                 nowNum *= firstNum;
@@ -196,8 +204,6 @@ public class MainActivity extends AppCompatActivity  {
                     resulte.setText(newStr.substring(0,newStr.length()-2));
                 }
                 else resulte.setText(newStr);
-                ifResult = true;
-                ifOncePoint = true;
                 break;
             case 3:
                 nowNum = firstNum-nowNum;
@@ -206,8 +212,6 @@ public class MainActivity extends AppCompatActivity  {
                     resulte.setText(newStr.substring(0,newStr.length()-2));
                 }
                 else resulte.setText(newStr);
-                ifResult = true;
-                ifOncePoint = true;
                 break;
             case 4:
                 nowNum += firstNum;
@@ -216,10 +220,14 @@ public class MainActivity extends AppCompatActivity  {
                     resulte.setText(newStr.substring(0,newStr.length()-2));
                 }
                 else resulte.setText(newStr);
-                ifResult = true;
-                ifOncePoint = true;
                 break;
             default:break;   ///连加连减处理
         }
+        if(ifFirst){
+            firstNum = nowNum - firstNum;
+            ifFirst = false;
+        }
+        ifResult = true;
+        ifOncePoint = true;
     }
 }
